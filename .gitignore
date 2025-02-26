@@ -1,6 +1,4 @@
 # Ignore demo folder (separate git repository)
-demo/
-demo copy/
 __pycache__/
 *.py[cod]
 *$py.class
