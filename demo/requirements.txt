@@ -1,0 +1,25 @@
+# Web Framework
+Flask==3.0.0
+Flask-Cors==4.0.0
+Flask-Limiter==3.5.0
+gunicorn==21.2.0
+redis==5.0.1  # For production rate limiting
+
+# Image Processing (install these separately)
+Pillow==10.2.0
+opencv-python-headless==4.9.0.80
+
+# PDF Processing
+PyMuPDF==1.23.8
+
+# Text Processing
+langdetect==1.0.9
+
+# Core Dependencies
+numpy==1.24.3
+
+# OCR Dependencies (install these separately)
+--find-links https://download.pytorch.org/whl/cpu/torch_stable.html
+torch==2.0.1+cpu
+torchvision==0.15.2+cpu
+easyocr==1.7.1

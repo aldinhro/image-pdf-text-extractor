@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Extraction Demo - Aldin's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+    <main>
+        <section class="demo-section">
+            <div class="container">
+                <a href="/" class="btn btn-outline">
+                    <span class="font-medium">Back to Portfolio</span>
+                </a>
+
+                <h1 class="section-title font-bold">Text Extraction <span class="gradient-text">Demo</span></h1>
+                <p class="text-warning font-medium">
+                    ⚠️ Note: This is an experimental demo. PDF extraction may be unreliable, especially for documents containing images.
+                </p>
+                <p class="demo-description font-medium">
+                    Python-powered text extraction from PDFs and images using Flask and EasyOCR. Files are processed in memory and not stored. Drop any PDF, JPG, or PNG file below to try it out.
+                </p>
+                
+                <div class="sample-section">
+                    <button id="sampleButton" class="sample-button">Try with Sample PDF</button>
+                </div>
+
+                <div class="upload-area" id="uploadArea" tabindex="0" role="button" aria-label="Upload file area. Click or drag and drop files here">
+                    <input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png" class="file-input" aria-label="Choose a file to upload">
+                    <div class="upload-content">
+                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                        <p class="upload-text">Drag and drop your file here or click to browse</p>
+                        <p class="upload-hint">Accepts PDF, JPG, PNG • Max 16MB</p>
+                    </div>
+                </div>
+                
+                <div class="file-info">
+                    <p class="file-name"></p>
+                    <p class="file-meta"></p>
+                </div>
+
+                <div id="previewSection">
+                    <p class="preview-title">Document Preview</p>
+                    <div class="pdf-preview-container">
+                        <canvas id="pdfPreview" class="pdf-preview"></canvas>
+                        <div class="page-indicator"></div>
+                    </div>
+                </div>
+
+                <div class="results-container" aria-live="polite">
+                    <div class="processing-state" id="loadingSpinner">
+                        <div class="progress-container">
+                            <div class="progress-bar" id="uploadProgress">
+                                <div class="progress-fill"></div>
+                            </div>
+                            <p class="progress-text">Processing your file...</p>
+                        </div>
+                        <div class="spinner"></div>
+                    </div>
+                    
+                    <div class="results-content" hidden>
+                        <div class="results-header">
+                            <h3 class="font-bold">Extracted Text</h3>
+                            <div class="results-meta">
+                                <span class="process-time"></span>
+                                <button class="btn copy-btn" aria-label="Copy text">
+                                    <i class="fas fa-copy"></i>
+                                    <span class="font-medium">Copy</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="extracted-text" role="textbox" aria-label="Extracted text content" tabindex="0"></div>
+                    </div>
+                    
+                    <div class="error-state" hidden>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <p class="error-message font-medium"></p>
+                        <button class="btn retry-btn">Try Again</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/demo.js"></script>
+</body>
+</html>
